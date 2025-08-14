@@ -13,10 +13,10 @@ app.use(cors());
 app.use(express.json());
 
 // роуты
-// import usersRouter from "./routes/users";
-// app.use("/api/users", usersRouter);
+import usersRouter from "./routes/user";
+app.use("/api/users", usersRouter);
 
-// MongoDB Atlas
+// БД лежит на mongo atlas
 mongoose
   .connect(process.env.MONGO_URI as string)
   .then(() => console.log("БД подключена"))
@@ -24,9 +24,9 @@ mongoose
 
 // статика + геты без /api => сбилженный клиент
 app.use(express.static(path.join(__dirname, "../../client/dist")));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../client/dist/index.html"));
-});
+// app.get("/*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../../client/dist/index.html"))
+// });
 
 app.listen(PORT, () => {
   console.log(`Сервер запущен на http://localhost:${PORT}`);

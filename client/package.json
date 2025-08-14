@@ -1,5 +1,5 @@
 {
-  "name": "package",
+  "name": "recipe-app",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -14,11 +14,16 @@
     "type-check": "vue-tsc --build"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.12",
+    "axios": "^1.11.0",
     "pinia": "^3.0.3",
+    "tailwindcss": "^4.1.12",
     "vue": "^3.5.18",
-    "vue-router": "^4.5.1"
+    "vue-router": "^4.5.1",
+    "vuetify": "^3.9.5"
   },
   "devDependencies": {
+    "@mdi/font": "^7.4.47",
     "@tsconfig/node22": "^22.0.2",
     "@types/node": "^22.16.5",
     "@vitejs/plugin-vue": "^6.0.1",
