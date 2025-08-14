@@ -1,0 +1,33 @@
+import express from "express";
+import mongoose from "mongoose";
+import cors from "cors";
+import path from "path";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(cors());
+app.use(express.json());
+
+// роуты
+// import usersRouter from "./routes/users";
+// app.use("/api/users", usersRouter);
+
+// MongoDB Atlas
+mongoose
+  .connect(process.env.MONGO_URI as string)
+  .then(() => console.log("БД подключена"))
+  .catch(err => console.error(err));
+
+// статика + геты без /api => сбилженный клиент
+app.use(express.static(path.join(__dirname, "../../client/dist")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../../client/dist/index.html"));
+});
+
+app.listen(PORT, () => {
+  console.log(`Сервер запущен на http://localhost:${PORT}`);
+});
