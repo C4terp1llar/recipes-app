@@ -3,3 +3,7 @@
 body{
   font-family: 'Montserrat', sans-serif;
 }
+
+.router-link-exact {
+  color: #2563eb;
+}

@@ -14,7 +14,9 @@ app.use(express.json());
 
 // роуты
 import usersRouter from "./routes/user";
+import recipesRouter from "./routes/recipes";
 app.use("/api/users", usersRouter);
+app.use("/api/recipes", recipesRouter);
 
 // БД лежит на mongo atlas
 mongoose

@@ -58,6 +58,25 @@ class UserService {
       return { success: false, status: 500, message: "Ошибка сервера" };
     }
   }
+
+  async me(userId: string) {
+    try {
+      const user = await User.findById(userId).select('_id login');
+      if (!user) {
+        return { success: false, status: 404, message: 'Пользователь не найден' };
+      }
+
+      return {
+        success: true,
+        status: 200,
+        data: { id: user._id, login: user.login }
+      };
+    } catch (e) {
+      console.error(e);
+      return { success: false, status: 500, message: 'Ошибка сервера' };
+    }
+  }
+
 }
 
 export default new UserService();

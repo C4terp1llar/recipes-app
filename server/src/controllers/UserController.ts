@@ -31,8 +31,19 @@ class UserController {
     }
   }
 
-  static sync(req: Request, res: Response) {
+  static async sync(req: Request, res: Response) {
     res.status(200).end()
+  }
+
+  static async me(req: Request, res: Response) {
+    try {
+      const authReq = req as AuthRequest;
+      const result = await UserService.me(authReq.user?.id);
+
+      res.status(result.status).json(result);
+    } catch (e) {
+      res.status(500).json({ success: false, message: "Ошибка сервера" });
+    }
   }
 }
 

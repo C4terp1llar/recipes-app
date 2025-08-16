@@ -4,9 +4,9 @@ import AuthWidget from "@/widget/authWidget/ui/authWidget.vue";
 </script>
 
 <template>
-  <div class="h-full w-full flex items-center justify-center">
+  <main class="h-full w-full d-flex items-center justify-center">
     <auth-widget mode="signup"/>
-  </div>
+  </main>
 </template>
 
 <style scoped>
