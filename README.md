@@ -57,6 +57,7 @@ npm install --prefix server
 ```
 
 ### 2.Скачать файл .env (https://disk.yandex.ru/d/F3yNjYCMxJPwTg) и положить в корень /server:
+> ⚠️ Название файла .env
 
 Пример содержимого
 - MONGO_URI=URI
@@ -74,8 +75,7 @@ npm install --prefix server
 
 > ⚠️ Режим разработки поддерживает HMR и корректное проксирование.
 
-### 4. Сборка и запуск production (ОПЦИОНАЛЬНО)
-#### Можно обойтись dev режимом
+### 3. Сборка и запуск production 
 
 ```bash
    npm run start
