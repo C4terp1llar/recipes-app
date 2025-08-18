@@ -40,7 +40,7 @@ const isOpen = ref<boolean>(false);
     <div v-if="recipe.comment" class="mb-2">
       <h3 class="text-sm font-medium text-gray-700 mb-1">Комментарий:</h3>
       <span class="text-gray-600 inline text-sm break-words break-all">
-        <span :class="{'line-clamp-3': !showFullComment, 'block': showFullComment}">{{ recipe.comment }} </span>
+        <span :class="{'line-clamp-2': !showFullComment, 'block': showFullComment}">{{ recipe.comment }} </span>
         <v-btn v-if="recipe.comment.length > 100" @click="showFullComment = !showFullComment" class="text-none p-0!" color="primary" variant="text" size="small" density="compact">{{ showFullComment ? "Свернуть" : "Развернуть" }}</v-btn>
       </span>
     </div>
@@ -75,6 +75,5 @@ const isOpen = ref<boolean>(false);
 </template>
 
 <style scoped>
-/* line-clamp работает через Tailwind >= 3.0, если нет плагина, можно подключить через CSS */
 
 </style>

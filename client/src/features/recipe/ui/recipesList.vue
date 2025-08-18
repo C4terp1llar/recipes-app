@@ -85,7 +85,7 @@ onMounted(async () => {
 
     <recipes-actions-bar
         v-if="recipesExists"
-        class="max-w-5xl w-full"
+        class="max-w-5xl w-full mx-auto"
         :options="options"
         @update-options="onUpdateOptions"
         :disabled="isLoading || recipes.length"

@@ -4,8 +4,6 @@
 
 **Backend** написан на Node.js + Express, **frontend** — на Vue 3 + TypeScript + Vuetify, хранение данных — MongoDB (Atlas).
 
----
-
 ## Стек технологий
 
 **Frontend:**
@@ -14,7 +12,7 @@
 - Tailwind CSS
 
 **Backend:**
-- Node.js, Express, Mongoose
+- Node.js, Express, Mongoose, JWT, Bcrypt
 
 **База данных:**
 - MongoDB 
@@ -25,6 +23,7 @@
 
 **Архитектура:**
 - FSD (frontend)
+- MVC (backend)
 - Монолит (frontend + backend в одном репозитории)
 
 ---
@@ -86,6 +85,21 @@ npm install --prefix server
 - Запускается Node.js сервер на порту PORT (по умолчанию 3000)
 
 > ⚠️ Важно: при вводе URL напрямую в браузере возможна ошибка Cannot GET / из-за проксирования Express.
+
+---
+### Данные для входа (можно зарегистрироваться)
+
+- логин: test 
+- пароль: qwerty123
+
+
+- логин: test2
+- пароль: qwerty123
+
+
+- логин: alesha
+- пароль: 123123123
+---
 
 ### База данных
 
