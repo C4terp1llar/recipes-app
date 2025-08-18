@@ -37,6 +37,11 @@ const router = createRouter({
           name: 'add-recipe',
           component: () => import('@/pages/addRecipe'),
         },
+        {
+          path: 'recipes',
+          name: 'recipe',
+          component: () => import('@/pages/recipes'),
+        },
       ]
     },
     {
@@ -61,6 +66,9 @@ router.beforeEach(async (to, from, next) => {
   let isAuth = false
 
   if (token) {
+    // если пользователь переходит между страницами в рамках защещенного лейаута то пропускаем без проверки
+    if (to.meta.auth && from.meta.auth) return next()
+
     isAuth = await checkAuth()
   }
 

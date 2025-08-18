@@ -5,10 +5,10 @@ import AddRecipeForm from "@/features/recipe/ui/addRecipeForm.vue";
 <template>
   <section class="w-full h-full flex flex-col items-center justify-start gap-6 p-6">
     <article class="text-center flex gap-2 flex-col">
-      <h1 class="text-3xl font-bold text-gray-800">
+      <h1 class="text-3xl max-md:text-xl font-bold text-gray-800">
         Добавьте свой рецепт 🍳
       </h1>
-      <p class="text-gray-600 text-lg leading-relaxed">
+      <p class="text-gray-600 text-lg max-md:text-base leading-relaxed">
         Поделитесь любимыми блюдами с другими пользователями.
         Укажите название, ингредиенты и категорию — и ваш рецепт попадёт в список.
         <br>

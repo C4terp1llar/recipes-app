@@ -74,7 +74,6 @@ const onSubmit = async () => {
         v-model.trim="title"
         label="Название рецепта"
         :rules="[rules.required(title)]"
-        @input="handleNoSpaceInput"
         hide-details="auto"
         variant="solo-filled"
         density="comfortable"
@@ -110,6 +109,7 @@ const onSubmit = async () => {
             hide-details="auto"
             variant="solo-filled"
             density="comfortable"
+            maxlength="50"
             :rules="[rules.required(ingredients[index])]"
             required
         />
@@ -139,6 +139,7 @@ const onSubmit = async () => {
         auto-grow
         rows="2"
         id="comment"
+        maxlength="500"
     />
 
     <v-btn

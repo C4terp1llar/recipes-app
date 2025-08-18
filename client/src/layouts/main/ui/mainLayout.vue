@@ -1,23 +1,21 @@
 <script setup lang="ts">
 import Sidebar from "@/widget/sidebar/ui/sidebar.vue";
 import {useUserStore} from "@/features/auth/store/useUserStore.ts";
-import {onMounted, ref} from "vue";
-import GlobalLoader from "@/shared/ui/globalLoader.vue";
+import {onBeforeMount} from "vue";
+import {setGlobalLoading} from "@/shared/utils/globalLoader.ts";
 
 const userStore = useUserStore();
-const isLoading = ref<boolean>(false);
 
-onMounted(async () => {
+onBeforeMount(async () => {
   if (userStore.user) return
-  isLoading.value = true;
+  setGlobalLoading(true);
   await userStore.handleGetUserInfo()
-  isLoading.value = false;
+  setGlobalLoading(false);
 })
 </script>
 
 <template>
-  <global-loader v-if="isLoading"/>
-  <main class="w-full h-full pa-2 d-flex gap-3 relative" v-else>
+  <main class="w-full h-full pa-2 d-flex max-md:flex-col gap-3 relative">
     <sidebar/>
 
     <router-view/>

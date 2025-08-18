@@ -20,4 +20,28 @@ export const recipeCreateSchema = z.object({
     .optional(),
 });
 
-export type RecipeInput = z.infer<typeof recipeSchema>;
+export type RecipeInput = z.infer<typeof recipeCreateSchema>;
+
+export const recipeGetManySchema = z.object({
+  q: z.string().trim().max(100, "Слишком длинный запрос").optional(),
+
+  category: z
+    .enum(["breakfast", "lunch", "dinner", "snack", ''], "Выберите корректную категорию")
+    .optional(),
+
+  sort: z.enum(["asc", "desc"]).optional(),
+
+  mode: z.enum(["all", "me"]).optional(),
+
+  page: z.preprocess(
+    (val) => (val !== undefined ? Number(val) : undefined),
+    z.number().min(0).optional()
+  ),
+
+  limit: z.preprocess(
+    (val) => (val !== undefined ? Number(val) : undefined),
+    z.number().min(1).max(100).optional()
+  ),
+});
+
+export type RecipeGetManyInput = z.infer<typeof recipeCreateSchema>;

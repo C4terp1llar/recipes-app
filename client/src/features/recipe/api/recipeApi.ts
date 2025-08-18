@@ -1,4 +1,4 @@
-import type {IRecipe, IRecipeCreate} from "@/features/recipe/types";
+import type {IRecipe, IRecipeCreate, IRecipeGetMany, IRecipesOptions} from "@/features/recipe/types";
 import {authApi} from "@/shared/api/authApi.ts";
 
 export const recipeApi = {
@@ -9,6 +9,11 @@ export const recipeApi = {
   },
 
   async deleteRecipe(id: string) {
+    await authApi.delete(`/recipes/${id}`);
+  },
 
-  }
+  async getManyRecipes(options: IRecipesOptions, page: number, limit: number) {
+    const { data: { data } } = await authApi.get(`/recipes`, {params: {...options, page, limit}})
+    return data as IRecipeGetMany
+  },
 }
